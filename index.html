@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Doge Crew</title>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: Arial, sans-serif;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    #bgVideo {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        backdrop-filter: blur(3px);
+        z-index: -1;
+    }
+
+    header {
+        padding: 20px 40px;
+        font-size: 32px;
+        font-weight: 900;
+        text-shadow: 0 4px 12px black;
+    }
+
+    .content {
+        padding: 80px 40px;
+        max-width: 900px;
+    }
+
+    h1 {
+        font-size: 64px;
+        font-weight: 900;
+        text-shadow: 0 6px 20px black;
+    }
+
+    h2 {
+        margin-top: 60px;
+        font-size: 40px;
+        font-weight: 900;
+        text-shadow: 0 4px 14px black;
+    }
+
+    p {
+        margin-top: 20px;
+        font-size: 20px;
+        max-width: 600px;
+        text-shadow: 0 3px 10px black;
+    }
+
+    .volume-control {
+        margin-top: 60px;
+        font-weight: bold;
+        font-size: 16px;
+        text-shadow: 0 4px 10px black;
+    }
+
+    input[type="range"] {
+        width: 250px;
+        margin-top: 10px;
+    }
+
+    .members-list {
+        margin-top: 30px;
+        background: rgba(0,0,0,0.35);
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 500px;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .member {
+        font-size: 18px;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .member:last-child {
+        border-bottom: none;
+    }
+
+    .discord-btn {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 14px 26px;
+        background: #5865F2;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        transition: 0.2s;
+    }
+    .discord-btn:hover {
+        background: #4752C4;
+        transform: scale(1.06);
+    }
+</style>
+</head>
+<body>
+
+<video id="bgVideo" src="https://files.catbox.moe/xhek33.mp4" autoplay loop></video>
+<div class="overlay"></div>
+
+<header>Doge Crew</header>
+
+<div class="content">
+    <h1>Welcome to Doge Crew</h1>
+    <p>Wowshington〚DC〛</p>
+
+    <h2>Members</h2>
+    <div class="members-list">
+        <div class="member">POSH DOGE [Founder]</div>
+        <div class="member">SAM</div>
+        <div class="member">ITSNOTSKELETON</div>
+        <div class="member">FAKESHEDLETSKY</div>
+    </div>
+
+    <a class="discord-btn" href="https://discord.gg/xAjfF3UFJX" target="_blank">
+        Join our discord
+    </a>
+
+    <div class="volume-control">
+        Background Volume<br>
+        <input type="range" min="0" max="1" step="0.01" value="0.25" id="volumeSlider">
+    </div>
+</div>
+
+<script>
+    const bgVideo = document.getElementById('bgVideo');
+    const slider = document.getElementById('volumeSlider');
+
+    bgVideo.volume = 0.25;
+    slider.addEventListener("input", () => {
+        bgVideo.volume = slider.value;
+    });
+</script>
+
+</body>
+</html>
